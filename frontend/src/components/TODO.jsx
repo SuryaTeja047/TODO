@@ -1,11 +1,16 @@
 import { useState } from "react";
 
+// The TODO componet in which we can create tasks delete thema and mark them as complete and important
 const TODO = () => {
   const [tasks, setTasks] = useState([]);
   const [task, setTask] = useState("");
+
+  // Updates input value for the new task
   const handleTask = (e) => {
     setTask(e.target.value);
   };
+
+  //Adds new task to the list if the task is not empty
   const addTasks = (e) => {
     e.preventDefault();
     if (task.trim() === "") return;
@@ -20,9 +25,13 @@ const TODO = () => {
     setTask("");
     console.log(tasks);
   };
+
+  // Removes a task by ID
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id));
   };
+
+  // Toggles a task's completed status
   const toggleComplete = (id) => {
     setTasks((prevTasks) =>
       prevTasks.map((t) =>
@@ -30,6 +39,8 @@ const TODO = () => {
       )
     );
   };
+
+  // Toggles a task's important status
   const toggleImportant = (id) => {
     setTasks((prevTasks) =>
       prevTasks.map((t) =>
