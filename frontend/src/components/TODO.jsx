@@ -50,7 +50,7 @@ const TODO = () => {
   };
   return (
     <>
-      <div className="container mt-4">
+      <div className="container mt-4 bg-light p-3">
         <h1>ToDo List</h1>
         <form>
           <div className="d-flex justify-content-between">
